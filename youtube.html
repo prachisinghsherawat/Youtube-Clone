@@ -8,73 +8,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles/youtube.css">
 
-    <style>
-        .container {
-            margin: auto;
-            height: 900px;
-            margin-top: 2%;
-            width: 90%;
-            background-color: rgb(240, 239, 239);
-        }
-
-        .nav {
-            display: flex;
-            height: 12%;
-            width: 99.7%;
-            background-color: rgb(250, 248, 248);
-            border: 4px solid rgb(180, 179, 179);
-            box-shadow: 15px 15px 15px rgb(207, 207, 207);
-        }
-
-        .youpic {
-            height: 78%;
-            width: 10%;
-            margin-top: 10px;
-            margin-left: 35px;
-        }
-
-        .navbox {
-            height: 90%;
-            width: 50%;
-            margin: auto;
-            display: flex;
-        }
-
-        input {
-            height: 12%;
-            padding: 2%;
-            width: 90%;
-            margin: auto;
-            font-size: 30px;
-        }
-
-        .btn {
-            height: 28%;
-            padding: 11px;
-            width: 35px;
-            margin: auto;
-            font-size: 33px;
-            color: grey;
-            background-color: rgb(252, 251, 249);
-            border: 1px solid rgb(73, 72, 72);
-        }
-
-        .btn:hover {
-            /* box-shadow: 4px 4px 2px 2px rgb(177, 176, 176) */
-            border: 4px solid rgb(189, 189, 189);
-        }
-
-        .showResult{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-gap: 22px;
-            padding: 4%; 
-        }
-
-
-        
-    </style>
 </head>
 
 <body>
@@ -95,49 +30,4 @@
 
 </html>
 
-<script>
-    var showResult = document.querySelector(".showResult");
-
-    async function onSearch() {
-
-        try {
-            let videoSearch = document.querySelector("#search").value;
-            let response = await fetch(
-                `https://youtube.googleapis.com/youtube/v3/search?q=${videoSearch}&type=video&key=AIzaSyAaSL5ohnChjSP_msFkrrNzUyLhXhxUi14&maxResults=20`
-            );
-
-            let data = await response.json();
-
-            let videos = data.items;
-            console.log(videos);
-            appendVideos(videos);
-        }
-        catch {
-            console.log(error);
-        }
-    }
-
-    var showResult = document.querySelector(".showResult");
-
-    function appendVideos(elem) {
-        document.querySelector(".showResult").innerHTML ="";
-        elem.map((ele) => {
-            let { id: { videoId }, } = ele;
-
-            console.log("videoId :",videoId);
-
-            var iframe = document.createElement("iframe");
-            iframe.src = `https://www.youtube.com/embed/${videoId}`;
-            iframe.width = "400px";
-            iframe.height = "300px";
-
-            showResult.append(iframe);
-        });
-    };
-
-    
-
-
-    
-
-</script>
+<script src="./scripts/youtube.js"></script>

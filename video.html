@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,71 +7,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Document</title>
-
-    <style>
-        .container {
-            margin: auto;
-            height: 900px;
-            margin-top: 2%;
-            width: 90%;
-            background-color: rgb(240, 239, 239);
-        }
-
-        .nav {
-            display: flex;
-            height: 12%;
-            width: 99.7%;
-            background-color: rgb(250, 248, 248);
-            border: 4px solid rgb(180, 179, 179);
-            box-shadow: 15px 15px 15px rgb(207, 207, 207);
-        }
-
-        .youpic {
-            height: 78%;
-            width: 10%;
-            margin-top: 10px;
-            margin-left: 35px;
-        }
-
-        .navbox {
-            height: 90%;
-            width: 50%;
-            margin: auto;
-            display: flex;
-        }
-
-        input {
-            height: 12%;
-            padding: 2%;
-            width: 90%;
-            margin: auto;
-            font-size: 30px;
-        }
-
-        .btn {
-            height: 28%;
-            padding: 11px;
-            width: 35px;
-            margin: auto;
-            font-size: 33px;
-            color: grey;
-            background-color: rgb(252, 251, 249);
-            border: 1px solid rgb(73, 72, 72);
-        }
-
-        .btn:hover {
-            /* box-shadow: 4px 4px 2px 2px rgb(177, 176, 176) */
-            border: 4px solid rgb(189, 189, 189);
-        }
-
-        .videoDetails {
-            margin: auto;
-            height: 800px;
-            width: 90%;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/video.css">
 </head>
-
 <body>
     <div class="container">
         <div class="nav">
@@ -89,19 +25,5 @@
     </div>
 </body>
 </html>
+<script src="./scripts/video.js"></script>
 
-<script>
-    let obj = JSON.parse(localStorage.getItem('clickedVideo'));
-
-    let videoDetails = document.querySelector(".videoDetails");
-
-    
-
-    let iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${obj.videoId}`;
-    iframe.width = "100%";
-    iframe.height = "100%";
-    iframe.setAttribute('allowFullScreen',"true");
-
-    videoDetails.append(iframe)
-</script>
